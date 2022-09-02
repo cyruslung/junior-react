@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css';  // component 中把 CSS 引入，webpack 最後才會打包 CSS 
+import Counter from './components/Counter';
+import CounterHook from './components/CounterHook';
 
-function App() {
+const App = () => {
+  const [ count, setCount ] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{fontSize: '25px',marginTop: '20px'}}>
+      This is my react app!
+      <Counter count={count} setCount={setCount} title="Counter App"/>
+      <CounterHook count={count} setCount={setCount} title="Counter App"/>
     </div>
   );
 }
